@@ -23,4 +23,4 @@ def pad_sequences(seqs: list, pad_value: int = 0, max_len: int | None = None) ->
         else:
             padded_sequence.append(seq[:max_len])
 
-    return np.array(padded_sequence)
+    return np.array(padded_sequence, dtype=np.int64)
