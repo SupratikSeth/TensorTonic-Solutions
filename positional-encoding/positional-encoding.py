@@ -15,8 +15,9 @@ def positional_encoding(seq_len: int, d_model: int, base: float = 10000.0) -> np
 
     angles = get_angles(positions, dim, d_model, base)
 
-    angles[:, 0::2] = np.sin(angles[:, 0::2])
-    angles[:, 1::2] = np.cos(angles[:, 1::2])
+    pos_encoding = np.zeros((seq_len, d_model))
+    pos_encoding[:, 0::2] = np.sin(angles[:, 0::2])
+    pos_encoding[:, 1::2] = np.cos(angles[:, 1::2])
 
-    return angles
+    return pos_encoding
     
