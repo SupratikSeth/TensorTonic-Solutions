@@ -9,9 +9,9 @@ def entropy_node(y: list[int]) -> float:
         return 0.0
     
     y = np.array(y)
-    unique = np.unique(y)
-    p = np.array([np.count_nonzero(y == cls) / len(y) for cls in unique])
+    unique, count = np.unique(y, return_counts=True)
+    p = count / len(y)
     mask = p > 0
-    H = -1 * np.sum(p[mask] * np.log2(p[mask]))
+    H = -np.sum(p[mask] * np.log2(p[mask]))
 
     return H
