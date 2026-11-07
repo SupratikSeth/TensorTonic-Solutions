@@ -13,7 +13,7 @@ def gaussian_kernel(size: int, sigma: float) -> list:
     for i in range(left_range, right_range + 1, 1):
         temp = []
         for j in range(left_range, right_range + 1, 1):
-            weight = (1 / (2 * math.pi * sigma**2)) * math.exp(-((i**2 + j**2) / (2 * sigma**2)))
+            weight = math.exp(-((i**2 + j**2) / (2 * sigma**2)))
             sum += weight
             temp.append(weight)
         G.append(temp)
